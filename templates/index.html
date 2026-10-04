@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Jar</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">A little jar of ideas</p>
+          <h1>Prompt Jar ✨</h1>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h2>Got supplies? Let's put them to use!</h2>
+
+          <form id="prompt-form">
+            <div class="field-grid">
+              <label>
+                <span>What</span>
+                <input
+                  type="text"
+                  name="what"
+                  value="Surprise me"
+                  placeholder="doodle / illustration / digital art / journaling / pottery"
+                />
+              </label>
+
+              <label>
+                <span>Topic</span>
+                <input
+                  type="text"
+                  name="topic"
+                  value="Surprise me"
+                  placeholder="animals / nature / cozy"
+                />
+              </label>
+
+              <label>
+                <span>Colors</span>
+                <input
+                  type="text"
+                  name="colors"
+                  value="Surprise me"
+                  placeholder="pink / pastels / bright / earthy"
+                />
+              </label>
+
+              <label>
+                <span>Supplies</span>
+                <input
+                  type="text"
+                  name="supplies"
+                  value="Surprise me"
+                  placeholder="watercolors / markers / journal"
+                />
+              </label>
+
+              <label>
+                <span>Time</span>
+                <input
+                  type="text"
+                  name="time"
+                  value="30 minutes"
+                  placeholder="30 minutes / a day / a week..."
+                />
+              </label>
+            </div>
+
+            <div class="action-row">
+              <button type="submit" class="primary">✨ Generate idea</button>
+              <button type="button" class="secondary" id="reroll-btn">
+                🎲 Reroll
+              </button>
+              <button type="button" class="secondary" id="easier-btn">
+                🧸 Beginner mode
+              </button>
+              <button type="button" class="secondary" id="weirder-btn">
+                🌀 Weird
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="panel result-panel">
+          <div id="empty-state" class="empty-state">
+            <span aria-hidden="true">✦</span>
+            <h3>Your next idea starts here.</h3>
+            <p>Fill in a few details, or leave them as “Surprise me.”</p>
+          </div>
+          <div id="result-card" class="result-card hidden">
+            <p id="result-prompt" class="lead"></p>
+
+            <button class="save-button" id="save-btn" type="button">
+              💾 Save it
+            </button>
+          </div>
+        </aside>
+      </main>
+
+      <section class="panel jar-panel">
+        <div class="jar-header">
+          <h2>My Jar</h2>
+        </div>
+        <div id="saved-prompts" class="saved-prompts"></div>
+      </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
